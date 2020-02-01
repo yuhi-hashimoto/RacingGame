@@ -21,7 +21,7 @@ public class CheckPointController : MonoBehaviour
     }
 
 	void OnTriggerEnter(Collider other){
-		if (other.gameObject.tag == "checkpoint1"){
+		/*if (other.gameObject.tag == "checkpoint1"){
 				if (checkpoint == 0){
 				checkpoint = 1;
 			}
@@ -90,7 +90,16 @@ public class CheckPointController : MonoBehaviour
 			if (checkpoint == 13){
 				checkpoint = 14;
 			}
+		}*/
+
+		for (int i = 1; i <= 14; i++){
+			if (other.gameObject.tag == "checkpoint" + i){
+				if (checkpoint == i - 1){
+					checkpoint = i;
+				}
+			}
 		}
+
 		if (other.gameObject.tag == "goal"){
 			if (checkpoint == 14){
 				goalcount = 1;
