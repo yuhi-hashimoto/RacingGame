@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CheckPointController : MonoBehaviour
 {
@@ -8,10 +9,12 @@ public class CheckPointController : MonoBehaviour
 
 	private int goalcount = 0;
 
+	private GameObject stateText;
+
     // Start is called before the first frame update
     void Start()
     {
-		
+		this.stateText = GameObject.Find("FinishText");
     }
 
     // Update is called once per frame
@@ -106,7 +109,7 @@ public class CheckPointController : MonoBehaviour
 			}
 		}
 		if (goalcount == 1){
-			Debug.Log ("ゴール");
+			this.stateText.GetComponent<Text>().text = "Finish!";
 		}
 	}
 }
